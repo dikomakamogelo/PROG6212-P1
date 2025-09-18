@@ -1,0 +1,23 @@
+@model IEnumerable<CMCS.Web.Models.ClaimSummary>
+@{
+    ViewData["Title"] = "Approver Queue";
+}
+<h2>Pending Claims for Review</h2>
+<table class="table table-striped">
+    <thead>
+        <tr><th>Month</th><th>Lecturer</th><th>Hours</th><th>Amount</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@r.Month</td>
+                <td>Demo Lecturer</td>
+                <td>@r.TotalHours</td>
+                <td>R @r.TotalAmount.ToString("N2")</td>
+                <td>@r.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Index">Back to Dashboard</a>
